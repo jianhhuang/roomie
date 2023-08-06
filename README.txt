@@ -1,5 +1,5 @@
 Structure layer of Submission:
-------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
 
 Other folders
 
@@ -11,9 +11,9 @@ lib - is a file from the font-end teamplate which gives us all the animations sh
 log- cof roomie logo
 scss - another file from the fron-end template which helped us in styling the website
 
--------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
 
-config.php - What the team used to connect the website to database
+config.php - What the team used to connect the website to the database
 
 includes folder contains:
 header.php 
