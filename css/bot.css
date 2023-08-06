@@ -1,0 +1,29 @@
+.open-button {
+    padding: 10px 30px;
+    color: white;
+    font-size: 17px;
+    max-width: 300px;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 100px;
+    right: 10px;
+    border-color: rgb(0, 0, 0);
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 160px;
+    right: 90px;
+    z-index: 9;
+}
+
+.chatbox {
+    max-width: atuo;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: white;
+    color: #777;
+}
