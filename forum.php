@@ -3,7 +3,7 @@
 require "config.php";
 ?>
 <?php
-$select = $conn->query("SELECT * FROM user_post order by id DESC");
+$select = $conn->query("SELECT * FROM user_post order by id DESC"); //fetch all records from the database
 $select->execute();
 $rows = $select->fetchAll(PDO::FETCH_OBJ);
 
@@ -14,17 +14,17 @@ $rows = $select->fetchAll(PDO::FETCH_OBJ);
         <?php foreach ($rows as $row): ?>
             <div class=" card">
                 <div class="card-header">
-                    <?php echo $row->username; ?>
+                    <?php echo $row->username; ?> <!--Display username that created post-->
                     <span class="position-absolute top-0 end-0 text-center">
                         <?php echo $row->created_dt; ?>
                     </span>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">
-                        <?php echo $row->title; ?>
+                        <?php echo $row->title; ?> <!--Display post title-->
                     </h5>
                     <p class="card-text">
-                        <?php echo substr($row->body, 0, 100) . '...'; ?>
+                        <?php echo substr($row->body, 0, 100) . '...'; ?> <!--Display post content-->
                     </p>
                     <a href="show_post.php?id=<?php echo $row->id; ?>" class="btn btn-primary">View Post</a>
                 </div>
