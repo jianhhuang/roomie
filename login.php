@@ -5,25 +5,25 @@ require "config.php";
 
 <?php
 // Check database and fetch data
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['username'])) { //display when user is logged in
   header('Location: index.php');
 }
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit'])) { //user must type in their account information to login
   if ($_POST['email'] == '' or $_POST['password'] == '') {
     echo "Input Missing!";
   } else {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $login = $conn->query("SELECT * FROM user_profile WHERE email = '$email'");
+    $login = $conn->query("SELECT * FROM user_profile WHERE email = '$email'"); //retun existing account
 
     $login->execute();
 
     $data = $login->fetch(PDO::FETCH_ASSOC);
 
 
-    if ($login->rowCount() > 0) {
+    if ($login->rowCount() > 0) { //if password doesn't match return nothing
       if (password_verify($password, $data['password'])) {
 
         $_SESSION['username'] = $data['username'];

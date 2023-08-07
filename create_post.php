@@ -4,22 +4,23 @@ require "config.php";
 ?>
 
 <?php
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['username'])) { //only display when a user is logged in 
   header("location: forum.php");
 }
 
 if (isset($_POST['submit'])) {
-  if ($_POST['title'] == '' or $_POST['body'] == '') {
+  if ($_POST['title'] == '' or $_POST['body'] == '') { //error if no input received
     echo "Input Missing!";
   } else {
-    $title = $_POST['title'];
-    $body = $_POST['body'];
+    $title = $_POST['title']; //post title
+    $body = $_POST['body']; //post content
     $username = $_SESSION['username'];
 
-    $insert = $conn->prepare("INSERT INTO user_post (title, body, username)
+    $insert = $conn->prepare("INSERT INTO user_post (title, body, username) <!-- insert data into database-->
       VALUES (:title, :body, :username)");
 
     $insert->execute([
+      //execute command
       ':title' => $title,
       ':body' => $body,
       ':username' => $username,
