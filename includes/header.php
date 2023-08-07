@@ -44,7 +44,7 @@
   <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
     <a href="index.php" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
       <h2 class="m-0 text-dark text-uppercase align-self-center"><i><img class="align-self-center"
-            src="/register/logo/roomie_logo.svg" alt="Logo" width="90" height="90"></i> COF Roomie</h2>
+            src="/roomie/logo/roomie_logo.svg" alt="Logo" width="90" height="90"></i> COF Roomie</h2>
     </a>
 
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
