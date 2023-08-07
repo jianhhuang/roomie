@@ -4,7 +4,7 @@ require "config.php";
 if (isset($_POST['search'])) {
     $search = $_POST['search'];
 
-    $select = $conn->query("SELECT * FROM roomie_profile WHERE roomiename LIKE '{$search}%'"); //used wildcard to match keywords from text
+    $select = $conn->query("SELECT * FROM roomie_profile WHERE roomiename LIKE '{$search}%'");
 
     $select->execute();
 

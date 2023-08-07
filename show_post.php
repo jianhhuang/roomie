@@ -7,13 +7,13 @@ require "config.php";
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $singlePost = $conn->query("SELECT * FROM user_post WHERE id = '$id'"); //show specific post based on inex 
+    $singlePost = $conn->query("SELECT * FROM user_post WHERE id = '$id'");
     $singlePost->execute();
 
     $posts = $singlePost->fetch(PDO::FETCH_OBJ);
 }
 
-$comments = $conn->query("SELECT * FROM comments WHERE post_id = '$id' order by id DESC"); //order by most recent comment
+$comments = $conn->query("SELECT * FROM comments WHERE post_id = '$id' order by id DESC");
 $comments->execute();
 
 $comment = $comments->fetchAll(PDO::FETCH_OBJ);
@@ -38,7 +38,6 @@ $comment = $comments->fetchAll(PDO::FETCH_OBJ);
     </div>
 </div>
 
-<!--Create texbox for comments-->
 <div class="form-signin w-50 m-auto mt-5 ">
     <form method="POST" id="comment_data">
         <div>
@@ -61,7 +60,6 @@ $comment = $comments->fetchAll(PDO::FETCH_OBJ);
     </form>
 </div>
 
-<!--Return comments from database-->
 <div class="form-signin w-50 m-auto mt-5">
     <?php foreach ($comment as $singleComment): ?>
         <div class="card">
@@ -89,7 +87,6 @@ $comment = $comments->fetchAll(PDO::FETCH_OBJ);
 <?php require "includes/footer.php"; ?>
 
 <script>
-    //using Ajax to process web request without refreshing the webpage
     $(document).ready(function () {
 
         $(document).on('submit', function (e) {

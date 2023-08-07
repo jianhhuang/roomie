@@ -5,13 +5,12 @@ require "config.php";
 
 <?php
 if (
-    //detect if field has been filled
     isset($_POST['roomiename']) &&
     isset($_POST['major']) &&
     isset($_POST['colleges']) &&
     isset($_POST['body'])
 ) {
-    //once filled then insert data
+
     $roomiename = $_POST['roomiename'];
     $major = $_POST['major'];
     $colleges = $_POST['colleges'];
@@ -33,7 +32,7 @@ if (
     } else {
         if (isset($_FILES['file']['name'])) {
 
-            //detects image file then insert into database if all requirements are met
+
             $img_name = $_FILES['file']['name'];
             $tmp_name = $_FILES['file']['tmp_name'];
             $error = $_FILES['file']['error'];
@@ -53,7 +52,7 @@ if (
                  VALUES(?,?,?,?,?)";
                     $stmt = $conn->prepare($sql);
                     $stmt->execute([$roomiename, $major, $colleges, $body, $new_img_name]);
-                    header('Location: view-roomie.php'); //ocne profile created redirect back to roomie webpage
+                    header('Location: view-roomie.php');
                     exit;
                 } else {
                     $em = "You can't upload files of this type";

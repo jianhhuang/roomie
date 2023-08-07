@@ -2,9 +2,9 @@
 
 require "config.php";
 
-if (isset($_POST['delete'])) {
-    $id = $_POST['id']; //post index
+if(isset($_POST['delete'])){
+    $id = $_POST['id'];
 
-    $delete = $conn->prepare("DELETE FROM comments WHERE id = '$id'"); //trigger delete comment if delete button has been clicked
+    $delete = $conn->prepare("DELETE FROM comments WHERE id = '$id'");
     $delete->execute();
 }

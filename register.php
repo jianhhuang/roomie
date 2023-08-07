@@ -4,11 +4,11 @@ require "config.php";
 ?>
 
 <?php
-if (isset($_SESSION['username'])) { //only shows when user logged in
+if (isset($_SESSION['username'])) {
   header("location: index.php");
 }
 
-if (isset($_POST['submit'])) { //must have input in each field before inserting data to database
+if (isset($_POST['submit'])) {
   if ($_POST['email'] == '' or $_POST['username'] == '' or $_POST['password'] == '') {
     echo "Input Missing!";
   } else {
@@ -16,11 +16,10 @@ if (isset($_POST['submit'])) { //must have input in each field before inserting 
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $insert = $conn->prepare("INSERT INTO user_profile (email, username, password) <!--Insert data into database-->
+    $insert = $conn->prepare("INSERT INTO user_profile (email, username, password)
     VALUES (:email, :username, :password)");
 
     $insert->execute([
-      //execute command
       ':email' => $email,
       ':username' => $username,
       ':password' => password_hash($password, PASSWORD_DEFAULT),

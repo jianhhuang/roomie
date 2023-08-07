@@ -3,7 +3,7 @@
 require "config.php";
 ?>
 
-<?php //return profile from database
+<?php
 $profile = $conn->query("SELECT * FROM roomie_profile order by created_dt DESC");
 $profile->execute();
 $rows = $profile->fetchAll(PDO::FETCH_OBJ);

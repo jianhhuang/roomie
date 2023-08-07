@@ -1,10 +1,10 @@
-<?php
-//end sessions
-session_start();
-session_unset();
-session_destroy();
+<?php 
 
-header("location: index.php");
+    session_start();
+    session_unset();
+    session_destroy();
+
+    header("location: index.php");
 
 
 

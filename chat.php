@@ -1,22 +1,19 @@
 <?php
 session_start();
-if (isset($_GET['logout'])) { //Exit session
+if (isset($_GET['logout'])) {
     session_destroy();
     header("Location: view-roomie.php"); //Redirect the user 
 }
-if (isset($_POST['enter'])) { //Joins chat
+if (isset($_POST['enter'])) {
     if ($_POST['name'] != "") {
-        $_SESSION['name'] = stripslashes(htmlspecialchars($_POST['name'])); //Textbox to enter a display name
+        $_SESSION['name'] = stripslashes(htmlspecialchars($_POST['name']));
     } else {
         echo '<span class="error">Please type in a name</span>';
     }
 }
-/**
- * Prompts the enter name box
- */
 function loginForm()
 {
-    echo '<div id="loginform">  
+    echo '<div id="loginform"> 
             <p>Please enter your name to continue!</p> 
             <form action="chat.php" method="post"> 
                 <label for="name">Name &mdash;</label> 
@@ -30,7 +27,7 @@ function loginForm()
 
 <body class="bg-primary-subtle">
     <?php
-    if (!isset($_SESSION['name'])) { //if no name enter stay in the same page, otherwise redirect to the chat box
+    if (!isset($_SESSION['name'])) {
         loginForm();
     } else {
         ?>
@@ -82,7 +79,7 @@ function loginForm()
                 }
                 setInterval(loadLog, 2500);
                 $("#exit").click(function () {
-                    var exit = confirm("Are you sure you want to end the session?"); //exit session
+                    var exit = confirm("Are you sure you want to end the session?");
                     if (exit == true) {
                         window.location = "view-roomie.php?logout=true";
                     }
