@@ -16,11 +16,10 @@ if (isset($_POST['submit'])) { //must have input in each field before inserting 
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $insert = $conn->prepare("INSERT INTO user_profile (email, username, password) <!--Insert data into database-->
+    $insert = $conn->prepare("INSERT INTO user_profile (email, username, password) 
     VALUES (:email, :username, :password)");
 
     $insert->execute([
-      //execute command
       ':email' => $email,
       ':username' => $username,
       ':password' => password_hash($password, PASSWORD_DEFAULT),
